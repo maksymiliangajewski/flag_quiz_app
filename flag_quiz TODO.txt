@@ -24,7 +24,7 @@ http://www.geognos.com/geo/en/world-countries-API.html
 
 Możesz stworzyć Layout wg. własnego uznania (propozycja: odpowiadanie za pomocą gestów, przeciągnij palcem prawo/lewo po ekranie)
 
-Na co zwrócić uwagę: - Płynność działania, leadery w miejscach gdzie występuje ładowanie danych.
+Na co zwrócić uwagę: - Płynność działania, loadery w miejscach gdzie występuje ładowanie danych.
 
 W razie problemu z limitami API możesz zapisać dane w pamięci wewnętrznej.
 
