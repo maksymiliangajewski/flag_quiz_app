@@ -1,8 +1,11 @@
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import appColors from "../constants/appColors";
+import { MyContext } from "../store/context";
 
 export default function QuizScreen() {
+  const myCtx = useContext(MyContext);
+
   const [questions, setQuestion] = useState();
   const [questionNumber, setQuestionNumber] = useState(0);
 
@@ -44,7 +47,8 @@ export default function QuizScreen() {
               }
             >
               <Text style={styles.answer}>
-                {decodeURIComponent(questions[questionNumber].correct_answer)}
+                {/* {decodeURIComponent(questions[questionNumber].correct_answer)} */}
+                {myCtx.userName}
               </Text>
             </TouchableOpacity>
             <TouchableOpacity
@@ -56,9 +60,10 @@ export default function QuizScreen() {
               }
             >
               <Text style={styles.answer}>
-                {decodeURIComponent(
+                {/* {decodeURIComponent(
                   questions[questionNumber].incorrect_answers[0]
-                )}
+                )} */}
+                {myCtx.roundsNumber}
               </Text>
             </TouchableOpacity>
           </View>

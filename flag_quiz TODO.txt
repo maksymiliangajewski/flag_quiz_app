@@ -12,8 +12,7 @@ Stwórz grę polegającą na zgadywaniu czy para flaga/nazwa państwa są popraw
 - Po zakończeniu gry (tj. rozegraniu wybranej liczby rund) pokaż wynik i statystyki (dobre/złe odpowiedzi na liście pod wynikiem)
 
 TODO:
-- ekran imienia oraz ile rund będzie grał
-- Context API - zapisywanie w kontekście (tutorial z Udemy)
+- pobieranie wszystkich krajów z API po określeniu liczby rund, zapisywanie w Context mapy z wylosowanymi krajami
 - custom fonts (tutorial w zakładkach)
 - loadery na zaciąganie z API (tutorial w zakładkach)
 - style do osobnego pliku

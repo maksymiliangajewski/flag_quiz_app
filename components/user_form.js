@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import Input from "./input";
 import MyButton from "./my_button";
+import { MyContext } from "../store/context";
 
 export default function UserForm() {
+  const myCtx = useContext(MyContext);
+
   const navigation = useNavigation();
   const [inputValues, setInputValues] = useState({
     userName: "",
@@ -42,7 +45,8 @@ export default function UserForm() {
       <MyButton
         label="Next"
         onPressFunction={() => {
-          // console.log(inputValues);
+          myCtx.setUserName(inputValues.userName);
+          myCtx.setRoundsNumber(inputValues.roundsNumber);
           navigation.navigate("QuizScreen");
         }}
       />
