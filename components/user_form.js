@@ -47,7 +47,7 @@ export default function UserForm() {
         onPressFunction={() => {
           myCtx.setUserName(inputValues.userName);
           myCtx.setRoundsNumber(inputValues.roundsNumber);
-          navigation.navigate("QuizScreen");
+          navigation.navigate("StartQuizScreen");
         }}
       />
     </View>

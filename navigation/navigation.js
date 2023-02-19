@@ -4,6 +4,7 @@ import HomeScreen from "../screens/home_screen";
 import QuizScreen from "../screens/quiz_screen";
 import ResultScreen from "../screens/result_screen";
 import UserInputScreen from "../screens/user_input_screen";
+import StartQuizScreen from "../screens/start_quiz_screen";
 
 const Stack = createNativeStackNavigator();
 
@@ -18,6 +19,11 @@ function MyStack() {
       <Stack.Screen
         name="UserInputScreen"
         component={UserInputScreen}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="StartQuizScreen"
+        component={StartQuizScreen}
         options={{ headerShown: false }}
       />
       <Stack.Screen

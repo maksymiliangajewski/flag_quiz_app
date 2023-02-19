@@ -5,7 +5,7 @@ import { MyContext } from "../store/context";
 
 export default function QuizScreen() {
   const myCtx = useContext(MyContext);
-
+  const quizCountries = myCtx.countries;
   const [questions, setQuestion] = useState();
   const [questionNumber, setQuestionNumber] = useState(0);
 
@@ -15,7 +15,6 @@ export default function QuizScreen() {
     const res = await fetch(url);
     const data = await res.json();
     setQuestion(data.results);
-    console.log(data.results);
   };
 
   const handleNextPress = () => {
@@ -32,11 +31,11 @@ export default function QuizScreen() {
 
   return (
     <View style={styles.container}>
-      {questions && (
+      {quizCountries && questions && (
         <View style={styles.parent}>
           <View style={styles.flagContainer}>
             <Text style={styles.question}>
-              {decodeURIComponent(questions[questionNumber].question)}
+              {quizCountries[questionNumber].id}
             </Text>
           </View>
           <View style={styles.answersContainer}>
@@ -47,8 +46,7 @@ export default function QuizScreen() {
               }
             >
               <Text style={styles.answer}>
-                {/* {decodeURIComponent(questions[questionNumber].correct_answer)} */}
-                {myCtx.userName}
+                {decodeURIComponent(questions[questionNumber].correct_answer)}
               </Text>
             </TouchableOpacity>
             <TouchableOpacity
@@ -60,12 +58,14 @@ export default function QuizScreen() {
               }
             >
               <Text style={styles.answer}>
-                {/* {decodeURIComponent(
+                {decodeURIComponent(
                   questions[questionNumber].incorrect_answers[0]
-                )} */}
-                {myCtx.roundsNumber}
+                )}
               </Text>
             </TouchableOpacity>
+            <Text style={styles.answer}>
+              {quizCountries[questionNumber].name}
+            </Text>
           </View>
           <View style={styles.bottomContainer}>
             {questionNumber !== 9 && (

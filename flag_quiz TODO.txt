@@ -4,21 +4,17 @@ Stwórz grę polegającą na zgadywaniu czy para flaga/nazwa państwa są popraw
 
 - Przed rozpoczęciem gry daj użytkownikowi możliwość wpisania swojego imienia i liczby rund które będzie rozgrywał
 - Wygeneruj dane do gry przed jej rozpoczęciem (50% poprawnych/50% niepoprawnych porównań)
-	- pobierać z API listę wszystkich krajów; 
-	potem losować z puli randomowo daną liczbę krajów; 
-	wrzucać do mapy (key: nazwa kraju, value: nazwa kraju dla flagi)
 - Na ekranie gry wyświetl flagę oraz nazwę państwa, w zależności od wybranego sposobu sterowania możesz wyświetlić przyciski wyboru prawda/fałsz.
 	- pobieranie flagi dla każdego pytania osobno (loader na pobieranie flagi)
 - Po zakończeniu gry (tj. rozegraniu wybranej liczby rund) pokaż wynik i statystyki (dobre/złe odpowiedzi na liście pod wynikiem)
 
 TODO:
-- pobieranie wszystkich krajów z API po określeniu liczby rund, zapisywanie w Context mapy z wylosowanymi krajami
+- zmienić zapisywanie do kontekstu i nawigację z komponentu User form na ekran user input
 - custom fonts (tutorial w zakładkach)
 - loadery na zaciąganie z API (tutorial w zakładkach)
 - style do osobnego pliku
 
 API do pobrania Państw oraz flag:
-
 http://www.geognos.com/geo/en/world-countries-API.html
 
 Możesz stworzyć Layout wg. własnego uznania (propozycja: odpowiadanie za pomocą gestów, przeciągnij palcem prawo/lewo po ekranie)
@@ -33,3 +29,4 @@ Nie używaj REDUX'a
 
 DOKSZTAŁCIĆ SIĘ:
 - React Hooks, useEffect, useState
+- shufflowanie tablicy: https://javascript.info/task/shuffle

@@ -3,4 +3,5 @@ export default {
   homeLetsGo: "Let's go!",
   name: "Name",
   userInputScreenHint: "Pick a name and choose a number of rounds to play",
+  start: "Start",
 };
