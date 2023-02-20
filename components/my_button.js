@@ -13,15 +13,15 @@ export default function MyButton({ label, onPressFunction }) {
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 40,
-    paddingHorizontal: 20,
+    flex: 1,
+    justifyContent: "center",
   },
   button: {
     backgroundColor: appColors.blue,
     padding: 15,
     borderRadius: 18,
     alignItems: "center",
-    marginBottom: 40,
+    marginHorizontal: 30,
   },
   buttonText: {
     fontSize: 24,

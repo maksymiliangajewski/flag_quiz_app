@@ -7,12 +7,10 @@ function renderResultItem(resultData) {
 
 export default function ResultList({ results }) {
   return (
-    <SafeAreaView>
-      <FlatList
-        data={results}
-        renderItem={renderResultItem}
-        keyExtractor={(item) => item.country}
-      />
-    </SafeAreaView>
+    <FlatList
+      data={results}
+      renderItem={renderResultItem}
+      keyExtractor={(item) => item.country}
+    />
   );
 }

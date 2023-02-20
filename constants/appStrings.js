@@ -6,4 +6,9 @@ export default {
   start: "Start",
   correct: "Correct!",
   wrong: "Wrong...",
+  congratulations: "Congratulations! You finished the quiz!",
+  yourScore: "Your score was:",
+  questionsSeparately: "Your answers:",
+  home: "Home",
+  returnToHome: "If you want to play again, click this button",
 };
