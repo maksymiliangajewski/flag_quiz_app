@@ -5,123 +5,101 @@ import { MyContext } from "../store/context";
 import Image from "react-native-image-progress";
 import ProgressBar from "react-native-progress/Bar";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import { flagUri } from "../util/http";
 
-export default function QuizScreen() {
+export default function QuizScreen({ navigation }) {
   const myCtx = useContext(MyContext);
   const quizCountries = myCtx.countries;
+  const [quizAnswers, setQuizAnswers] = useState([]);
   const [questionNumber, setQuestionNumber] = useState(0);
 
-  const handleNextPress = () => {
+  const handleSelectedOption = (_option) => {
+    setQuizAnswers([
+      ...quizAnswers,
+      {
+        country: quizCountries[questionNumber].name,
+        answerCorrect:
+          quizCountries[questionNumber].value === _option ? true : false,
+      },
+    ]);
     setQuestionNumber(questionNumber + 1);
   };
 
-  const handleSelectedOption = (_option) => {
-    console.log(_option);
-  };
-
-  // return (
-  //   <View style={styles.container}>
-  //     {quizCountries && (
-  //       <View style={styles.parent}>
-  //         <View style={styles.flagContainer}>
-  //           <Image
-  //             source={{
-  //               uri:
-  //                 "http://www.geognos.com/api/en/countries/flag/" +
-  //                 quizCountries[questionNumber].id +
-  //                 ".png",
-  //             }}
-  //             indicator={ProgressBar}
-  //             style={styles.image}
-  //           />
-  //           <Text style={styles.question}>
-  //             {quizCountries[questionNumber].id}
-  //           </Text>
-  //           <Text style={styles.question}>
-  //             {quizCountries[questionNumber].name}
-  //           </Text>
-  //         </View>
-  //         <View style={styles.answersContainer}>
-  //           <TouchableOpacity
-  //             style={styles.answerButton}
-  //             onPress={() => handleSelectedOption(true)}
-  //           >
-  //             <Text style={styles.answer}>True</Text>
-  //           </TouchableOpacity>
-  //           <TouchableOpacity
-  //             style={styles.answerButton}
-  //             onPress={() => handleSelectedOption(false)}
-  //           >
-  //             <Text style={styles.answer}>False</Text>
-  //           </TouchableOpacity>
-  //         </View>
-  //         <View style={styles.bottomContainer}>
-  //           {questionNumber !== quizCountries.length - 1 && (
-  //             <TouchableOpacity style={styles.button} onPress={handleNextPress}>
-  //               <Text style={styles.buttonText}>Next</Text>
-  //             </TouchableOpacity>
-  //           )}
-  //           {questionNumber === quizCountries.length - 1 && (
-  //             <TouchableOpacity style={styles.button} onPress={() => null}>
-  //               <Text style={styles.buttonText}>Show result</Text>
-  //             </TouchableOpacity>
-  //           )}
-  //         </View>
-  //       </View>
-  //     )}
-  //   </View>
-  // );
-
   return (
     <View style={styles.container}>
-      <View style={styles.flagContainer}>
-        <Image
-          source={{
-            uri:
-              "http://www.geognos.com/api/en/countries/flag/" +
-              quizCountries[questionNumber].id +
-              ".png",
-          }}
-          indicator={ProgressBar}
-          style={styles.image}
-        />
-      </View>
-      <View style={styles.countryTextContainer}>
-        <Text>{quizCountries[questionNumber].id}</Text>
-        <Text style={styles.countryText}>
-          {quizCountries[questionNumber].name}
-        </Text>
-      </View>
+      {quizCountries && questionNumber < quizCountries.length && (
+        <View style={styles.parent}>
+          <View style={styles.flagContainer}>
+            <Image
+              source={{
+                uri: flagUri(quizCountries[questionNumber].id),
+              }}
+              indicator={ProgressBar}
+              style={styles.image}
+            />
+          </View>
+          <View style={styles.countryTextContainer}>
+            <Text>{quizCountries[questionNumber].id}</Text>
+            <Text style={styles.countryText}>
+              {quizCountries[questionNumber].name}
+            </Text>
+          </View>
+          <View style={styles.buttonsRow}>
+            <View style={[styles.answerButton, { marginRight: 3 }]}>
+              <TouchableOpacity onPress={() => handleSelectedOption(true)}>
+                <Ionicons
+                  style={styles.buttonText}
+                  name="checkmark-outline"
+                  size={45}
+                ></Ionicons>
+              </TouchableOpacity>
+            </View>
+            <View
+              style={[
+                styles.answerButton,
+                { backgroundColor: appColors.red, marginLeft: 3 },
+              ]}
+            >
+              <TouchableOpacity onPress={() => handleSelectedOption(false)}>
+                <Ionicons
+                  style={styles.buttonText}
+                  name="close-outline"
+                  size={45}
+                ></Ionicons>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </View>
+      )}
+      {questionNumber >= quizCountries.length &&
+        EndOfQuizComponent({ navigation, quizAnswers })}
+    </View>
+  );
+}
+
+export function EndOfQuizComponent({ navigation, quizAnswers }) {
+  return (
+    <View style={styles.parent}>
       <View style={styles.buttonsRow}>
-        <View style={[styles.answerButton, { marginRight: 3 }]}>
-          <TouchableOpacity>
-            <Ionicons
-              style={styles.buttonText}
-              name="checkmark-outline"
-              size={45}
-            ></Ionicons>
-          </TouchableOpacity>
-        </View>
-        <View
-          style={[
-            styles.answerButton,
-            { backgroundColor: appColors.red, marginLeft: 3 },
-          ]}
+        <TouchableOpacity
+          onPress={() =>
+            navigation.navigate("ResultScreen", {
+              quizAnswers: quizAnswers,
+            })
+          }
+          style={styles.button}
         >
-          <TouchableOpacity>
-            <Ionicons
-              style={styles.buttonText}
-              name="close-outline"
-              size={45}
-            ></Ionicons>
-          </TouchableOpacity>
-        </View>
+          <Text style={styles.buttonText}>"End of quiz. See results"</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  parent: {
+    height: "100%",
+  },
   container: {
     flex: 1,
   },
@@ -154,6 +132,16 @@ const styles = StyleSheet.create({
   image: {
     height: 160,
     width: 320,
+  },
+  button: {
+    width: "100%",
+    height: 200,
+    backgroundColor: appColors.blue,
+    padding: 15,
+    borderRadius: 18,
+    alignItems: "center",
+    justifyContent: "center",
+    marginBottom: 40,
   },
 });
 
