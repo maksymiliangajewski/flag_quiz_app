@@ -14,8 +14,8 @@ export default function HomeScreen({ navigation }) {
         />
       </View>
       <View style={styles.centerContainer}>
-        <Text style={styles.textBig}>Flag</Text>
-        <Text style={styles.textBig}>Quiz</Text>
+        <Text style={styles.textBig}>{appStrings.flag}</Text>
+        <Text style={styles.textBig}>{appStrings.quiz}</Text>
       </View>
       <View style={styles.bottomContainer}>
         <MyButton

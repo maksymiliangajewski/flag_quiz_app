@@ -1,8 +1,10 @@
 export default {
-  homeTitle: "Flag Quiz",
+  flag: "Flag",
+  quiz: "Quiz",
   homeLetsGo: "Let's go!",
   name: "Name",
-  userInputScreenHint: "Pick a name and choose a number of rounds to play",
+  numberOfRounds: "Number of rounds",
+  userInputScreenHint: "Pick a name and choose a number of rounds to play:",
   start: "Start",
   correct: "Correct!",
   wrong: "Wrong...",
@@ -11,4 +13,8 @@ export default {
   questionsSeparately: "Your answers:",
   home: "Home",
   returnToHome: "If you want to play again, click this button",
+  next: "Next",
+  nameErrorText: "\nName cannot be empty\n",
+  roundsErrorText: "Number of rounds must be between 1 and 99",
+  alertErrorText: "Something is not quite right...",
 };

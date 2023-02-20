@@ -9,9 +9,8 @@ Stwórz grę polegającą na zgadywaniu czy para flaga/nazwa państwa są popraw
 - Po zakończeniu gry (tj. rozegraniu wybranej liczby rund) pokaż wynik i statystyki (dobre/złe odpowiedzi na liście pod wynikiem)
 
 TODO:
-- wyniki - zamiast obrazka - procentowo, dodać przycisk na powrót do Home
-- wymagane imię (dowolny, od 1 znaku) i liczba rund (1 - 99)
-- zmienić zapisywanie do kontekstu i nawigację z komponentu User form na ekran user input
+- ostylować ekrany:
+	- Start Quiz Screen, Quiz Screen
 - custom fonts (tutorial w zakładkach)
 - loadery na zaciąganie z API - pobieranie listy krajów (tutorial w zakładkach)
 - style do osobnego pliku
