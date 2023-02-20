@@ -1,3 +1,3 @@
 export default {
-  quizHomeImage: require("./quizImage.png"),
+  quizHomeImage: require("./question-mark.png"),
 };

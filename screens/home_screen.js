@@ -1,52 +1,66 @@
-import { StyleSheet, Text, TouchableOpacity, View, Image } from "react-native";
-import Title from "../components/title";
+import { StyleSheet, Text, View, Image } from "react-native";
 import appStrings from "../constants/appStrings";
 import appColors from "../constants/appColors";
 import imageAssets from "../assets/imageAssets";
+import MyButton from "../components/my_button";
 
 export default function HomeScreen({ navigation }) {
   return (
-    <View style={styles.container}>
-      <Title />
-      <View style={styles.imageContainer}>
-        <Image source={imageAssets.quizHomeImage} style={styles.homeImage} />
+    <View style={styles.background}>
+      <View style={styles.topContainer}>
+        <Image
+          source={imageAssets.quizHomeImage}
+          style={styles.backgroundImage}
+        />
       </View>
-      <TouchableOpacity
-        onPress={() => navigation.navigate("UserInputScreen")}
-        style={styles.button}
-      >
-        <Text style={styles.buttonText}>{appStrings.homeLetsGo}</Text>
-      </TouchableOpacity>
+      <View style={styles.centerContainer}>
+        <Text style={styles.textBig}>Flag</Text>
+        <Text style={styles.textBig}>Quiz</Text>
+      </View>
+      <View style={styles.bottomContainer}>
+        <MyButton
+          label={appStrings.homeLetsGo}
+          onPressFunction={() => {
+            navigation.navigate("UserInputScreen");
+          }}
+        />
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    paddingTop: 40,
-    paddingHorizontal: 20,
+  background: {
     height: "100%",
+    paddingVertical: "10%",
+    backgroundColor: appColors.dirtyWhite,
   },
-  imageContainer: {
+  topContainer: {
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-  },
-  homeImage: {
-    height: 300,
-    width: 300,
-  },
-  button: {
-    width: "100%",
-    backgroundColor: appColors.blue,
+    margin: 15,
     padding: 15,
-    borderRadius: 18,
-    alignItems: "center",
-    marginBottom: 40,
+    paddingTop: 50,
   },
-  buttonText: {
-    fontSize: 24,
-    fontWeight: "600",
-    color: appColors.dirtyWhite,
+  backgroundImage: {
+    height: "150%",
+    resizeMode: "contain",
+  },
+  centerContainer: {
+    flex: 2,
+    margin: 15,
+    padding: 15,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  textBig: {
+    fontSize: 75,
+    fontWeight: "700",
+  },
+  bottomContainer: {
+    flex: 1,
+    margin: 15,
+    padding: 15,
   },
 });

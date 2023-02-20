@@ -1,12 +1,4 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  TouchableOpacity,
-  SafeAreaView,
-} from "react-native";
-import imageAssets from "../assets/imageAssets";
+import { StyleSheet, Text, View } from "react-native";
 import ResultList from "../components/result_list";
 import appColors from "../constants/appColors";
 import appStrings from "../constants/appStrings";
