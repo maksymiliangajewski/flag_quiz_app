@@ -1,4 +1,4 @@
-import { fetchAllCountries } from "../util/http";
+import { fetchAllCountries } from "../http/http";
 
 export async function prepareCountries(roundsNumber) {
   const allCountries = await fetchAllCountries();

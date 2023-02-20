@@ -128,6 +128,7 @@ const styles = StyleSheet.create({
   bottomContainer: {
     flex: 1,
     margin: 15,
+    marginTop: 75,
     padding: 15,
   },
 });

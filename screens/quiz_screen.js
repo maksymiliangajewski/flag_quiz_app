@@ -5,7 +5,7 @@ import { MyContext } from "../store/context";
 import Image from "react-native-image-progress";
 import ProgressBar from "react-native-progress/Bar";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import { flagUri } from "../util/http";
+import { flagUri } from "../http/http";
 
 export default function QuizScreen({ navigation }) {
   const myCtx = useContext(MyContext);

@@ -10,7 +10,8 @@ Stwórz grę polegającą na zgadywaniu czy para flaga/nazwa państwa są popraw
 
 TODO:
 - ostylować ekrany:
-	- Start Quiz Screen, Quiz Screen
+	- Quiz Screen
+- zmienić kolor na primaryBlue taki jaki jest w znaku zapytania na HomeScreen
 - custom fonts (tutorial w zakładkach)
 - loadery na zaciąganie z API - pobieranie listy krajów (tutorial w zakładkach)
 - style do osobnego pliku
