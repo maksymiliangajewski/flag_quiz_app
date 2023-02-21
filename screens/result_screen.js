@@ -30,9 +30,6 @@ export default function ResultScreen({ route, navigation }) {
         <ResultList results={quizAnswers}></ResultList>
       </View>
       <View style={styles.bottomContainer}>
-        <Text style={[styles.textSmall, { paddingTop: 10, fontSize: 15 }]}>
-          {stringAssets.returnToHome}
-        </Text>
         <MyButton
           label={stringAssets.home}
           onPressFunction={() => {

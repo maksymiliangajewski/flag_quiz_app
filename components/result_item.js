@@ -4,7 +4,15 @@ import stringAssets from "../assets/stringAssets";
 
 export default function ResultItem({ country, answerCorrect }) {
   return (
-    <View style={styles.resultItem}>
+    <View
+      style={[
+        styles.resultItem,
+        {
+          backgroundColor:
+            answerCorrect === true ? colorAssets.green : colorAssets.red,
+        },
+      ]}
+    >
       <Text style={styles.textBase}>{country}</Text>
       <Text style={[styles.textBase && { fontWeight: "800" }]}>
         {answerCorrect === true ? stringAssets.correct : stringAssets.wrong}

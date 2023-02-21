@@ -8,7 +8,6 @@ Stwórz grę polegającą na zgadywaniu czy para flaga/nazwa państwa są popraw
 - Po zakończeniu gry (tj. rozegraniu wybranej liczby rund) pokaż wynik i statystyki (dobre/złe odpowiedzi na liście pod wynikiem)
 
 TODO:
-- Result screen - poszczególne odpowiedzi - zielone jak dobre, czerwone jak złe
 
 API do pobrania Państw oraz flag:
 http://www.geognos.com/geo/en/world-countries-API.html

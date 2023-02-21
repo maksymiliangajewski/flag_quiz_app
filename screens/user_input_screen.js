@@ -14,8 +14,8 @@ export default function UserInputScreen() {
   const myCtx = useContext(MyContext);
   const navigation = useNavigation();
   const [inputValues, setInputValues] = useState({
-    userName: "",
-    roundsNumber: "",
+    userName: myCtx.userName,
+    roundsNumber: myCtx.roundsNumber,
   });
 
   const inputChangedHandler = (inputIdentifier) => (enteredValue) => {
