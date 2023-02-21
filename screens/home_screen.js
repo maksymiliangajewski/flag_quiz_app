@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View, Image } from "react-native";
 import colorAssets from "../assets/colorAssets";
+import fontAssets from "../assets/fonts/fontAssets";
 import imageAssets from "../assets/images/imageAssets";
 import stringAssets from "../assets/stringAssets";
 import MyButton from "../components/my_button";
@@ -56,7 +57,7 @@ const styles = StyleSheet.create({
   },
   textBig: {
     fontSize: 75,
-    // fontFamily: "open-sans-bold",
+    fontFamily: fontAssets.bold,
     color: colorAssets.darkBlue,
   },
   bottomContainer: {

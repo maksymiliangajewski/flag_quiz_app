@@ -1,13 +1,13 @@
 import { useState, useContext } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import Image from "react-native-image-progress";
-import ProgressBar from "react-native-progress/Bar";
 import { MyContext } from "../store/context";
 import { flagUri } from "../http/http";
 import QuizAnswerButton from "../components/quiz_answer_button";
 import EndOfQuizComponent from "../components/end_of_quiz";
 import colorAssets from "../assets/colorAssets";
 import fontAssets from "../assets/fonts/fontAssets";
+import LoadingOverlay from "../components/loading_overlay";
 
 export default function QuizScreen({ navigation }) {
   const myCtx = useContext(MyContext);
@@ -36,7 +36,7 @@ export default function QuizScreen({ navigation }) {
               source={{
                 uri: flagUri(quizCountries[questionNumber].id),
               }}
-              indicator={ProgressBar}
+              indicator={LoadingOverlay}
               style={styles.flagImage}
             />
           </View>

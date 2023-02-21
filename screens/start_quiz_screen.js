@@ -26,7 +26,11 @@ export default function StartQuizScreen({ navigation }) {
   }, []);
 
   if (isLoading) {
-    return <LoadingOverlay />;
+    return (
+      <View style={styles.background}>
+        <LoadingOverlay />
+      </View>
+    );
   }
 
   return (
