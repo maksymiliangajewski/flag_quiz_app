@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View, Image } from "react-native";
-import appStrings from "../constants/appStrings";
-import appColors from "../constants/appColors";
-import imageAssets from "../assets/imageAssets";
+import colorAssets from "../assets/colorAssets";
+import imageAssets from "../assets/images/imageAssets";
+import stringAssets from "../assets/stringAssets";
 import MyButton from "../components/my_button";
 
 export default function HomeScreen({ navigation }) {
@@ -14,12 +14,12 @@ export default function HomeScreen({ navigation }) {
         />
       </View>
       <View style={styles.centerContainer}>
-        <Text style={styles.textBig}>{appStrings.flag}</Text>
-        <Text style={styles.textBig}>{appStrings.quiz}</Text>
+        <Text style={styles.textBig}>{stringAssets.flag}</Text>
+        <Text style={styles.textBig}>{stringAssets.quiz}</Text>
       </View>
       <View style={styles.bottomContainer}>
         <MyButton
-          label={appStrings.homeLetsGo}
+          label={stringAssets.homeLetsGo}
           onPressFunction={() => {
             navigation.navigate("UserInputScreen");
           }}
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
   background: {
     height: "100%",
     paddingVertical: "10%",
-    backgroundColor: appColors.dirtyWhite,
+    backgroundColor: colorAssets.dirtyWhite,
   },
   topContainer: {
     flex: 1,
@@ -56,8 +56,8 @@ const styles = StyleSheet.create({
   },
   textBig: {
     fontSize: 75,
-    fontWeight: "700",
-    color: appColors.darkBlue,
+    // fontFamily: "open-sans-bold",
+    color: colorAssets.darkBlue,
   },
   bottomContainer: {
     flex: 1,

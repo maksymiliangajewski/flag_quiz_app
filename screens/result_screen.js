@@ -1,8 +1,9 @@
 import { StyleSheet, Text, View } from "react-native";
 import ResultList from "../components/result_list";
-import appColors from "../constants/appColors";
-import appStrings from "../constants/appStrings";
 import MyButton from "../components/my_button";
+import colorAssets from "../assets/colorAssets";
+import stringAssets from "../assets/stringAssets";
+import fontAssets from "../assets/fonts/fontAssets";
 
 export default function ResultScreen({ route, navigation }) {
   const { quizAnswers } = route.params;
@@ -15,7 +16,7 @@ export default function ResultScreen({ route, navigation }) {
       <View style={styles.topContainer}>
         <View>
           <Text style={[styles.textSmall, { fontSize: 24 }]}>
-            {appStrings.yourScore}
+            {stringAssets.yourScore}
           </Text>
           <Text style={styles.textBig}>
             {(correctAnswers / quizAnswers.length).toFixed(2) * 100}%
@@ -24,16 +25,16 @@ export default function ResultScreen({ route, navigation }) {
       </View>
       <View style={styles.centerContainer}>
         <Text style={[styles.textSmall, { paddingBottom: 7 }]}>
-          {appStrings.questionsSeparately}
+          {stringAssets.questionsSeparately}
         </Text>
         <ResultList results={quizAnswers}></ResultList>
       </View>
       <View style={styles.bottomContainer}>
         <Text style={[styles.textSmall, { paddingTop: 10, fontSize: 15 }]}>
-          {appStrings.returnToHome}
+          {stringAssets.returnToHome}
         </Text>
         <MyButton
-          label={appStrings.home}
+          label={stringAssets.home}
           onPressFunction={() => {
             navigation.navigate("HomeScreen");
           }}
@@ -47,11 +48,11 @@ const styles = StyleSheet.create({
   parent: {
     height: "100%",
     paddingVertical: "10%",
-    backgroundColor: appColors.dirtyWhite,
+    backgroundColor: colorAssets.dirtyWhite,
   },
   topContainer: {
     flex: 1,
-    backgroundColor: appColors.white,
+    backgroundColor: colorAssets.white,
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 15,
@@ -61,23 +62,23 @@ const styles = StyleSheet.create({
   textSmall: {
     alignSelf: "center",
     fontSize: 18,
-    fontWeight: "500",
+    fontFamily: fontAssets.regular,
   },
   textBig: {
     alignSelf: "center",
     fontSize: 75,
-    fontWeight: "700",
+    fontFamily: fontAssets.bold,
   },
   centerContainer: {
     flex: 2,
-    backgroundColor: appColors.white,
+    backgroundColor: colorAssets.white,
     borderRadius: 15,
     margin: 15,
     padding: 15,
   },
   bottomContainer: {
     flex: 1,
-    backgroundColor: appColors.white,
+    backgroundColor: colorAssets.white,
     borderRadius: 15,
     margin: 15,
     padding: 15,

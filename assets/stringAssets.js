@@ -23,7 +23,7 @@ export default {
     return (
       "You decided to play " +
       numberOfRounds +
-      " rounds of the quiz.\n\nIn each round you will be presented with the flag and the name of the country.\n\nYour task is to determine whether the flag corresponds to the country.\n\nGood luck!"
+      " rounds of the quiz. In each round you will be presented with the flag and the name of the country. Your task is to determine whether the flag corresponds to the country.\n\nGood luck!"
     );
   },
   allDone: "Congrats! All done!",

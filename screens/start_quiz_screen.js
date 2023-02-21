@@ -1,12 +1,13 @@
-import { StyleSheet, Text, TouchableOpacity, View, Image } from "react-native";
-import appStrings from "../constants/appStrings";
-import appColors from "../constants/appColors";
+import { StyleSheet, Text, View, Image } from "react-native";
 import { useContext, useEffect, useState } from "react";
 import { MyContext } from "../store/context";
 import { prepareCountries } from "../controllers/countries_controller";
-import imageAssets from "../assets/imageAssets";
+import imageAssets from "../assets/images/imageAssets";
 import MyButton from "../components/my_button";
 import LoadingOverlay from "../components/loading_overlay";
+import colorAssets from "../assets/colorAssets";
+import stringAssets from "../assets/stringAssets";
+import fontAssets from "../assets/fonts/fontAssets";
 
 export default function StartQuizScreen({ navigation }) {
   const myCtx = useContext(MyContext);
@@ -35,15 +36,15 @@ export default function StartQuizScreen({ navigation }) {
       </View>
       <View style={styles.centerContainer}>
         <Text style={styles.textBig}>
-          {appStrings.hello} {userName}!
+          {stringAssets.hello} {userName}!
         </Text>
         <Text style={styles.textSmall}>
-          {appStrings.startQuizHint(roundsNumber)}
+          {stringAssets.startQuizHint(roundsNumber)}
         </Text>
       </View>
       <View style={styles.bottomContainer}>
         <MyButton
-          label={appStrings.startQuiz}
+          label={stringAssets.startQuiz}
           onPressFunction={() => {
             navigation.navigate("QuizScreen");
           }}
@@ -57,7 +58,7 @@ const styles = StyleSheet.create({
   background: {
     height: "100%",
     paddingVertical: "10%",
-    backgroundColor: appColors.dirtyWhite,
+    backgroundColor: colorAssets.dirtyWhite,
   },
   topContainer: {
     flex: 1,
@@ -73,27 +74,27 @@ const styles = StyleSheet.create({
   },
   centerContainer: {
     flex: 2,
-    backgroundColor: appColors.white,
+    backgroundColor: colorAssets.white,
     borderRadius: 15,
     margin: 15,
-    padding: 15,
+    padding: 25,
     alignItems: "center",
     justifyContent: "center",
   },
   textBig: {
     fontSize: 40,
-    fontWeight: "600",
+    fontFamily: fontAssets.bold,
     alignContent: "center",
     alignSelf: "center",
     paddingBottom: 20,
-    color: appColors.darkBlue,
+    color: colorAssets.darkBlue,
   },
   textSmall: {
     alignContent: "center",
     alignSelf: "center",
     fontSize: 18,
-    fontWeight: "500",
-    color: appColors.darkBlue,
+    fontFamily: fontAssets.regular,
+    color: colorAssets.darkBlue,
   },
   bottomContainer: {
     flex: 1,

@@ -1,7 +1,8 @@
 import { Text, View, Image, StyleSheet } from "react-native";
-import imageAssets from "../assets/imageAssets";
-import appColors from "../constants/appColors";
-import appStrings from "../constants/appStrings";
+import colorAssets from "../assets/colorAssets";
+import fontAssets from "../assets/fonts/fontAssets";
+import imageAssets from "../assets/images/imageAssets";
+import stringAssets from "../assets/stringAssets";
 import MyButton from "./my_button";
 
 export default function EndOfQuizComponent({ navigation, quizAnswers }) {
@@ -11,12 +12,12 @@ export default function EndOfQuizComponent({ navigation, quizAnswers }) {
         <Image source={imageAssets.endQuizImage} style={styles.image} />
       </View>
       <View style={styles.centerContainer}>
-        <Text style={styles.textBig}>{appStrings.allDone}</Text>
-        <Text style={styles.textSmall}>{appStrings.endOfQuizText}</Text>
+        <Text style={styles.textBig}>{stringAssets.allDone}</Text>
+        <Text style={styles.textSmall}>{stringAssets.endOfQuizText}</Text>
       </View>
       <View style={styles.bottomContainer}>
         <MyButton
-          label={appStrings.seeResult}
+          label={stringAssets.seeResult}
           onPressFunction={() => {
             navigation.navigate("ResultScreen", {
               quizAnswers: quizAnswers,
@@ -32,7 +33,7 @@ const styles = StyleSheet.create({
   background: {
     height: "100%",
     paddingVertical: "10%",
-    backgroundColor: appColors.dirtyWhite,
+    backgroundColor: colorAssets.dirtyWhite,
   },
   topContainer: {
     flex: 1,
@@ -48,7 +49,7 @@ const styles = StyleSheet.create({
   },
   centerContainer: {
     flex: 2,
-    backgroundColor: appColors.white,
+    backgroundColor: colorAssets.white,
     borderRadius: 15,
     margin: 15,
     padding: 15,
@@ -56,17 +57,17 @@ const styles = StyleSheet.create({
   },
   textBig: {
     fontSize: 32,
-    fontWeight: "600",
+    fontFamily: fontAssets.bold,
     alignContent: "center",
     alignSelf: "center",
-    color: appColors.darkBlue,
+    color: colorAssets.darkBlue,
   },
   textSmall: {
     fontSize: 18,
-    fontWeight: "500",
+    fontFamily: fontAssets.regular,
     alignContent: "center",
     alignSelf: "center",
-    color: appColors.darkBlue,
+    color: colorAssets.darkBlue,
   },
   bottomContainer: {
     flex: 1,

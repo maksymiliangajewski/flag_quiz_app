@@ -1,4 +1,4 @@
-import { FlatList, StyleSheet, SafeAreaView } from "react-native";
+import { FlatList } from "react-native";
 import ResultItem from "./result_item";
 
 function renderResultItem(resultData) {

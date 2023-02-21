@@ -1,5 +1,6 @@
-import { StyleSheet, Text, TouchableOpacity } from "react-native";
+import { StyleSheet, TouchableOpacity } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import colorAssets from "../assets/colorAssets";
 
 export default function QuizAnswerButton({
   iconLabel,
@@ -26,5 +27,6 @@ const styles = StyleSheet.create({
   answerButtonIcon: {
     alignSelf: "center",
     justifyContent: "center",
+    color: colorAssets.darkBlue,
   },
 });

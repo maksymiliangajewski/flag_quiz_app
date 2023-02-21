@@ -2,12 +2,13 @@ import { useContext, useState } from "react";
 import { StyleSheet, Text, View, Image, Alert } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scrollview";
-import imageAssets from "../assets/imageAssets";
+import imageAssets from "../assets/images/imageAssets";
 import MyButton from "../components/my_button";
-import appColors from "../constants/appColors";
-import appStrings from "../constants/appStrings";
 import Input from "../components/input";
 import { MyContext } from "../store/context";
+import colorAssets from "../assets/colorAssets";
+import stringAssets from "../assets/stringAssets";
+import fontAssets from "../assets/fonts/fontAssets";
 
 export default function UserInputScreen() {
   const myCtx = useContext(MyContext);
@@ -29,15 +30,15 @@ export default function UserInputScreen() {
     let validationError = false;
 
     if (inputValues.userName.length < 1) {
-      errorMsg += appStrings.nameErrorText;
+      errorMsg += stringAssets.nameErrorText;
       validationError = true;
     }
     if (inputValues.roundsNumber < 1 || inputValues.roundsNumber > 99) {
-      errorMsg += appStrings.roundsErrorText;
+      errorMsg += stringAssets.roundsErrorText;
       validationError = true;
     }
     if (validationError) {
-      Alert.alert(appStrings.alertErrorText, errorMsg);
+      Alert.alert(stringAssets.alertErrorText, errorMsg);
       return true;
     }
     return false;
@@ -54,12 +55,12 @@ export default function UserInputScreen() {
         </View>
         <View style={styles.centerContainer}>
           <Text style={styles.textRegular}>
-            {appStrings.userInputScreenHint}
+            {stringAssets.userInputScreenHint}
           </Text>
           <View>
             <View>
               <Input
-                label={appStrings.name}
+                label={stringAssets.name}
                 textInputConfig={{
                   maxLength: 32,
                   onChangeText: inputChangedHandler("userName"),
@@ -67,7 +68,7 @@ export default function UserInputScreen() {
                 }}
               ></Input>
               <Input
-                label={appStrings.numberOfRounds}
+                label={stringAssets.numberOfRounds}
                 textInputConfig={{
                   keyboardType: "decimal-pad",
                   maxLength: 2,
@@ -80,7 +81,7 @@ export default function UserInputScreen() {
         </View>
         <View style={styles.bottomContainer}>
           <MyButton
-            label={appStrings.next}
+            label={stringAssets.next}
             onPressFunction={() => {
               if (!validateFields()) {
                 myCtx.setUserName(inputValues.userName);
@@ -99,7 +100,7 @@ const styles = StyleSheet.create({
   background: {
     height: "100%",
     paddingVertical: "10%",
-    backgroundColor: appColors.dirtyWhite,
+    backgroundColor: colorAssets.dirtyWhite,
   },
   topContainer: {
     height: 200,
@@ -115,7 +116,7 @@ const styles = StyleSheet.create({
   },
   centerContainer: {
     flex: 2,
-    backgroundColor: appColors.white,
+    backgroundColor: colorAssets.white,
     borderRadius: 15,
     margin: 15,
     padding: 15,
@@ -123,8 +124,8 @@ const styles = StyleSheet.create({
   },
   textRegular: {
     fontSize: 20,
-    fontWeight: "500",
-    color: appColors.darkBlue,
+    fontFamily: fontAssets.regular,
+    color: colorAssets.darkBlue,
   },
   bottomContainer: {
     flex: 1,

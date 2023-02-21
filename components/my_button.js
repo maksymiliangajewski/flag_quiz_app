@@ -1,5 +1,6 @@
 import { TouchableOpacity, View, Text, StyleSheet } from "react-native";
-import appColors from "../constants/appColors";
+import colorAssets from "../assets/colorAssets";
+import fontAssets from "../assets/fonts/fontAssets";
 
 export default function MyButton({ label, onPressFunction }) {
   return (
@@ -17,7 +18,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   button: {
-    backgroundColor: appColors.primaryBlue,
+    backgroundColor: colorAssets.primaryBlue,
     padding: 15,
     borderRadius: 18,
     alignItems: "center",
@@ -25,7 +26,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     fontSize: 24,
-    fontWeight: "600",
-    color: appColors.dirtyWhite,
+    fontFamily: fontAssets.regular,
+    color: colorAssets.dirtyWhite,
   },
 });

@@ -1,5 +1,6 @@
 import { TextInput, Text, View, StyleSheet } from "react-native";
-import appColors from "../constants/appColors";
+import colorAssets from "../assets/colorAssets";
+import fontAssets from "../assets/fonts/fontAssets";
 
 export default function Input({ label, textInputConfig }) {
   return (
@@ -18,14 +19,14 @@ const styles = StyleSheet.create({
   },
   label: {
     fontSize: 12,
-    fontWeight: "500",
+    fontFamily: fontAssets.regular,
     marginBottom: 4,
-    color: appColors.darkBlue,
+    color: colorAssets.darkBlue,
     paddingBottom: 4,
   },
   input: {
-    backgroundColor: appColors.dirtyWhite,
-    color: appColors.darkBlue,
+    backgroundColor: colorAssets.dirtyWhite,
+    color: colorAssets.darkBlue,
     padding: 6,
     borderRadius: 6,
     fontSize: 18,
