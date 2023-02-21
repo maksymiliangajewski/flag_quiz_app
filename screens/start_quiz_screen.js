@@ -8,6 +8,7 @@ import LoadingOverlay from "../components/loading_overlay";
 import colorAssets from "../assets/colorAssets";
 import stringAssets from "../assets/stringAssets";
 import fontAssets from "../assets/fonts/fontAssets";
+import { StackActions } from "@react-navigation/native";
 
 export default function StartQuizScreen({ navigation }) {
   const myCtx = useContext(MyContext);
@@ -50,7 +51,7 @@ export default function StartQuizScreen({ navigation }) {
         <MyButton
           label={stringAssets.startQuiz}
           onPressFunction={() => {
-            navigation.navigate("QuizScreen");
+            navigation.dispatch(StackActions.replace("QuizScreen"));
           }}
         />
       </View>

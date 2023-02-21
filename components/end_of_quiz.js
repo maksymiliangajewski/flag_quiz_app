@@ -4,6 +4,7 @@ import fontAssets from "../assets/fonts/fontAssets";
 import imageAssets from "../assets/images/imageAssets";
 import stringAssets from "../assets/stringAssets";
 import MyButton from "./my_button";
+import { StackActions } from "@react-navigation/native";
 
 export default function EndOfQuizComponent({ navigation, quizAnswers }) {
   return (
@@ -19,9 +20,11 @@ export default function EndOfQuizComponent({ navigation, quizAnswers }) {
         <MyButton
           label={stringAssets.seeResult}
           onPressFunction={() => {
-            navigation.navigate("ResultScreen", {
-              quizAnswers: quizAnswers,
-            });
+            navigation.dispatch(
+              StackActions.replace("ResultScreen", {
+                quizAnswers: quizAnswers,
+              })
+            );
           }}
         />
       </View>

@@ -10,32 +10,15 @@ const Stack = createNativeStackNavigator();
 
 function MyStack() {
   return (
-    <Stack.Navigator initialRouteName="Home">
-      <Stack.Screen
-        name="HomeScreen"
-        component={HomeScreen}
-        options={{ headerShown: false }}
-      />
-      <Stack.Screen
-        name="UserInputScreen"
-        component={UserInputScreen}
-        options={{ headerShown: false }}
-      />
-      <Stack.Screen
-        name="StartQuizScreen"
-        component={StartQuizScreen}
-        options={{ headerShown: false }}
-      />
-      <Stack.Screen
-        name="QuizScreen"
-        component={QuizScreen}
-        options={{ headerShown: false }}
-      />
-      <Stack.Screen
-        name="ResultScreen"
-        component={ResultScreen}
-        options={{ headerShown: false }}
-      />
+    <Stack.Navigator
+      initialRouteName="Home"
+      screenOptions={{ headerShown: false }}
+    >
+      <Stack.Screen name="HomeScreen" component={HomeScreen} />
+      <Stack.Screen name="UserInputScreen" component={UserInputScreen} />
+      <Stack.Screen name="StartQuizScreen" component={StartQuizScreen} />
+      <Stack.Screen name="QuizScreen" component={QuizScreen} />
+      <Stack.Screen name="ResultScreen" component={ResultScreen} />
     </Stack.Navigator>
   );
 }
