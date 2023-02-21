@@ -14,8 +14,9 @@ export default function ResultScreen({ route, navigation }) {
     <View style={styles.parent}>
       <View style={styles.topContainer}>
         <View>
-          <Text style={styles.textSmall}>{appStrings.congratulations}</Text>
-          <Text style={styles.textSmall}>{appStrings.yourScore}</Text>
+          <Text style={[styles.textSmall, { fontSize: 24 }]}>
+            {appStrings.yourScore}
+          </Text>
           <Text style={styles.textBig}>
             {(correctAnswers / quizAnswers.length).toFixed(2) * 100}%
           </Text>
@@ -28,7 +29,7 @@ export default function ResultScreen({ route, navigation }) {
         <ResultList results={quizAnswers}></ResultList>
       </View>
       <View style={styles.bottomContainer}>
-        <Text style={[styles.textSmall, { paddingTop: 12 }]}>
+        <Text style={[styles.textSmall, { paddingTop: 10, fontSize: 15 }]}>
           {appStrings.returnToHome}
         </Text>
         <MyButton

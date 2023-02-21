@@ -5,15 +5,11 @@ Stwórz grę polegającą na zgadywaniu czy para flaga/nazwa państwa są popraw
 - Przed rozpoczęciem gry daj użytkownikowi możliwość wpisania swojego imienia i liczby rund które będzie rozgrywał
 - Wygeneruj dane do gry przed jej rozpoczęciem (50% poprawnych/50% niepoprawnych porównań)
 - Na ekranie gry wyświetl flagę oraz nazwę państwa, w zależności od wybranego sposobu sterowania możesz wyświetlić przyciski wyboru prawda/fałsz.
-	- pobieranie flagi dla każdego pytania osobno (loader na pobieranie flagi)
 - Po zakończeniu gry (tj. rozegraniu wybranej liczby rund) pokaż wynik i statystyki (dobre/złe odpowiedzi na liście pod wynikiem)
 
 TODO:
-- ostylować ekrany:
-	- Quiz Screen
-- zmienić kolor na primaryBlue taki jaki jest w znaku zapytania na HomeScreen
+- LoadingOverlay na pobieraniu obrazka flagi
 - custom fonts (tutorial w zakładkach)
-- loadery na zaciąganie z API - pobieranie listy krajów (tutorial w zakładkach)
 - style do osobnego pliku
 
 API do pobrania Państw oraz flag:

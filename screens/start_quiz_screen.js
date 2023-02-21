@@ -31,10 +31,7 @@ export default function StartQuizScreen({ navigation }) {
   return (
     <View style={styles.background}>
       <View style={styles.topContainer}>
-        <Image
-          source={imageAssets.startQuizImage}
-          style={styles.backgroundImage}
-        />
+        <Image source={imageAssets.startQuizImage} style={styles.image} />
       </View>
       <View style={styles.centerContainer}>
         <Text style={styles.textBig}>
@@ -70,7 +67,7 @@ const styles = StyleSheet.create({
     padding: 15,
     paddingTop: 50,
   },
-  backgroundImage: {
+  image: {
     height: "110%",
     resizeMode: "contain",
   },
@@ -89,12 +86,14 @@ const styles = StyleSheet.create({
     alignContent: "center",
     alignSelf: "center",
     paddingBottom: 20,
+    color: appColors.darkBlue,
   },
   textSmall: {
     alignContent: "center",
     alignSelf: "center",
     fontSize: 18,
     fontWeight: "500",
+    color: appColors.darkBlue,
   },
   bottomContainer: {
     flex: 1,
@@ -102,40 +101,3 @@ const styles = StyleSheet.create({
     padding: 15,
   },
 });
-
-// const styles = StyleSheet.create({
-//   container: {
-//     paddingTop: 40,
-//     paddingHorizontal: 20,
-//     height: "100%",
-//   },
-//   imageContainer: {
-//     flex: 1,
-//     alignItems: "center",
-//     justifyContent: "center",
-//   },
-//   homeImage: {
-//     height: 300,
-//     width: 300,
-//   },
-//   button: {
-//     width: "100%",
-//     backgroundColor: appColors.blue,
-//     padding: 15,
-//     borderRadius: 18,
-//     alignItems: "center",
-//     marginBottom: 40,
-//   },
-//   buttonText: {
-//     fontSize: 24,
-//     fontWeight: "600",
-//     color: appColors.dirtyWhite,
-//   },
-//   question: {
-//     fontSize: 28,
-//   },
-//   flagContainer: {
-//     marginVertical: 16,
-//     alignItems: "center",
-//   },
-// });

@@ -57,6 +57,7 @@ const styles = StyleSheet.create({
   textBig: {
     fontSize: 75,
     fontWeight: "700",
+    color: appColors.darkBlue,
   },
   bottomContainer: {
     flex: 1,

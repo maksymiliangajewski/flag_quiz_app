@@ -26,17 +26,17 @@ export default function UserInputScreen() {
 
   function validateFields() {
     let errorMsg = "";
-    let isError = false;
+    let validationError = false;
 
     if (inputValues.userName.length < 1) {
       errorMsg += appStrings.nameErrorText;
-      isError = true;
+      validationError = true;
     }
     if (inputValues.roundsNumber < 1 || inputValues.roundsNumber > 99) {
       errorMsg += appStrings.roundsErrorText;
-      isError = true;
+      validationError = true;
     }
-    if (isError) {
+    if (validationError) {
       Alert.alert(appStrings.alertErrorText, errorMsg);
       return true;
     }
@@ -124,6 +124,7 @@ const styles = StyleSheet.create({
   textRegular: {
     fontSize: 20,
     fontWeight: "500",
+    color: appColors.darkBlue,
   },
   bottomContainer: {
     flex: 1,

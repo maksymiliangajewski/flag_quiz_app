@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   button: {
-    backgroundColor: appColors.blue,
+    backgroundColor: appColors.primaryBlue,
     padding: 15,
     borderRadius: 18,
     alignItems: "center",

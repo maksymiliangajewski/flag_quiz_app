@@ -10,10 +10,10 @@ export default {
   correct: "Correct!",
   wrong: "Wrong...",
   congratulations: "Congratulations! You finished the quiz!",
-  yourScore: "Your score was:",
+  yourScore: "Your score:",
   questionsSeparately: "Your answers:",
   home: "Home",
-  returnToHome: "If you want to play again, click this button",
+  returnToHome: "If you want to play again, click this button:",
   next: "Next",
   nameErrorText: "\nName cannot be empty\n",
   roundsErrorText: "Number of rounds must be between 1 and 99",
@@ -26,4 +26,8 @@ export default {
       " rounds of the quiz.\n\nIn each round you will be presented with the flag and the name of the country.\n\nYour task is to determine whether the flag corresponds to the country.\n\nGood luck!"
     );
   },
+  allDone: "Congrats! All done!",
+  endOfQuizText:
+    "That's the end of the quiz.\n\nTo see your results, click the button below:",
+  seeResult: "See result",
 };
