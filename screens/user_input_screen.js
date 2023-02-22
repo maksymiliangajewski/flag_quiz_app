@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useRef } from "react";
 import { StyleSheet, Text, View, Image, Alert } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scrollview";
@@ -17,6 +17,7 @@ export default function UserInputScreen() {
     userName: myCtx.userName,
     roundsNumber: myCtx.roundsNumber,
   });
+  const roundsNumberInputRef = useRef();
 
   const inputChangedHandler = (inputIdentifier) => (enteredValue) => {
     setInputValues((currentInputValues) => ({
@@ -65,6 +66,11 @@ export default function UserInputScreen() {
                   maxLength: 32,
                   onChangeText: inputChangedHandler("userName"),
                   value: inputValues.userName,
+                  returnKeyType: "next",
+                  onSubmitEditing: () => {
+                    roundsNumberInputRef.current.focus();
+                  },
+                  blurOnSubmit: false,
                 }}
               ></Input>
               <Input
@@ -74,6 +80,7 @@ export default function UserInputScreen() {
                   maxLength: 2,
                   onChangeText: inputChangedHandler("roundsNumber"),
                   value: inputValues.roundsNumber,
+                  ref: roundsNumberInputRef,
                 }}
               ></Input>
             </View>
