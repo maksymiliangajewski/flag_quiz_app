@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, Image } from "react-native";
 import { useContext, useEffect, useState } from "react";
-import { MyContext } from "../store/context";
+import { CountriesContext } from "../store/countries_context";
 import { prepareCountries } from "../controllers/countries_controller";
 import imageAssets from "../assets/images/imageAssets";
 import LoadingOverlay from "../components/loading_overlay";
@@ -9,11 +9,13 @@ import stringAssets from "../assets/stringAssets";
 import fontAssets from "../assets/fonts/fontAssets";
 import { StackActions } from "@react-navigation/native";
 import DefaultButton from "../components/default_button";
+import { UserContext } from "../store/user_context";
 
 export default function StartQuizScreen({ navigation }) {
-  const myCtx = useContext(MyContext);
-  const userName = myCtx.userName;
-  const roundsNumber = myCtx.roundsNumber;
+  const countriesContext = useContext(CountriesContext);
+  const userContext = useContext(UserContext);
+  const userName = userContext.userName;
+  const roundsNumber = userContext.roundsNumber;
   const [isLoading, setIsLoading] = useState(true);
   const onStartQuizPressed = () =>
     navigation.dispatch(StackActions.replace("QuizScreen"));
@@ -22,7 +24,7 @@ export default function StartQuizScreen({ navigation }) {
     async function getCountries() {
       const fetchedCountries = await prepareCountries(roundsNumber);
       setIsLoading(false);
-      myCtx.setCountries(fetchedCountries);
+      countriesContext.setCountries(fetchedCountries);
     }
 
     getCountries();

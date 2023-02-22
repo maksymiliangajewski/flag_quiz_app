@@ -4,18 +4,18 @@ import { useNavigation } from "@react-navigation/native";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scrollview";
 import imageAssets from "../assets/images/imageAssets";
 import Input from "../components/input";
-import { MyContext } from "../store/context";
 import colorAssets from "../assets/colorAssets";
 import stringAssets from "../assets/stringAssets";
 import fontAssets from "../assets/fonts/fontAssets";
 import DefaultButton from "../components/default_button";
+import { UserContext } from "../store/user_context";
 
 export default function UserInputScreen() {
-  const myCtx = useContext(MyContext);
+  const userContext = useContext(UserContext);
   const navigation = useNavigation();
   const [inputValues, setInputValues] = useState({
-    userName: myCtx.userName,
-    roundsNumber: myCtx.roundsNumber,
+    userName: userContext.userName,
+    roundsNumber: userContext.roundsNumber,
   });
   const roundsNumberInputRef = useRef();
 
@@ -91,8 +91,8 @@ export default function UserInputScreen() {
             label={stringAssets.next}
             onPressFunction={() => {
               if (!validateFields()) {
-                myCtx.setUserName(inputValues.userName);
-                myCtx.setRoundsNumber(inputValues.roundsNumber);
+                userContext.setUserName(inputValues.userName);
+                userContext.setRoundsNumber(inputValues.roundsNumber);
                 navigation.navigate("StartQuizScreen");
               }
             }}

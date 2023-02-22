@@ -1,22 +1,15 @@
 import { createContext, useState } from "react";
 
-export const MyContext = createContext({
-  countries: [],
+export const UserContext = createContext({
   userName: "",
   roundsNumber: "",
-  setCountries: () => {},
   setUserName: () => {},
   setRoundsNumber: () => {},
 });
 
-function MyContextProvider({ children }) {
-  const [countries, setCountries] = useState([]);
+function UserContextProvider({ children }) {
   const [userName, setUserName] = useState("");
   const [roundsNumber, setRoundsNumber] = useState("");
-
-  function setCountriesFromAPI(countries) {
-    setCountries(countries);
-  }
 
   function setUserNameFromInput(input) {
     setUserName(input);
@@ -27,15 +20,13 @@ function MyContextProvider({ children }) {
   }
 
   const value = {
-    countries: countries,
     userName: userName,
     roundsNumber: roundsNumber,
-    setCountries: setCountriesFromAPI,
     setUserName: setUserNameFromInput,
     setRoundsNumber: setRoundsNumberFromInput,
   };
 
-  return <MyContext.Provider value={value}>{children}</MyContext.Provider>;
+  return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
 }
 
-export default MyContextProvider;
+export default UserContextProvider;

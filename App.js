@@ -1,9 +1,10 @@
 import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
-import MyContextProvider from "./store/context";
 import { useFonts } from "expo-font";
 import LoadingOverlay from "./components/loading_overlay";
 import MainAppStack from "./navigation/navigation";
+import UserContextProvider from "./store/user_context";
+import CountriesContextProvider from "./store/countries_context";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -14,10 +15,12 @@ export default function App() {
   if (!fontsLoaded) return <LoadingOverlay />;
 
   return (
-    <MyContextProvider>
-      <NavigationContainer>
-        <MainAppStack />
-      </NavigationContainer>
-    </MyContextProvider>
+    <UserContextProvider>
+      <CountriesContextProvider>
+        <NavigationContainer>
+          <MainAppStack />
+        </NavigationContainer>
+      </CountriesContextProvider>
+    </UserContextProvider>
   );
 }

@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import Image from "react-native-image-progress";
-import { MyContext } from "../store/context";
+import { CountriesContext } from "../store/countries_context";
 import { flagUri } from "../http/http";
 import QuizAnswerButton from "../components/quiz_answer_button";
 import EndOfQuizComponent from "../components/end_of_quiz";
@@ -10,8 +10,8 @@ import fontAssets from "../assets/fonts/fontAssets";
 import LoadingOverlay from "../components/loading_overlay";
 
 export default function QuizScreen({ navigation }) {
-  const myCtx = useContext(MyContext);
-  const quizCountries = myCtx.countries;
+  const countriesContext = useContext(CountriesContext);
+  const quizCountries = countriesContext.countries;
   const [quizAnswers, setQuizAnswers] = useState([]);
   const [questionNumber, setQuestionNumber] = useState(0);
 
