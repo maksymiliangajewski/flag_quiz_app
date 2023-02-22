@@ -3,9 +3,11 @@ import colorAssets from "../assets/colorAssets";
 import fontAssets from "../assets/fonts/fontAssets";
 import imageAssets from "../assets/images/imageAssets";
 import stringAssets from "../assets/stringAssets";
-import MyButton from "../components/my_button";
+import DefaultButton from "../components/default_button";
 
 export default function HomeScreen({ navigation }) {
+  const onLetsGoButtonPressed = () => navigation.navigate("UserInputScreen");
+
   return (
     <View style={styles.background}>
       <View style={styles.topContainer}>
@@ -19,11 +21,9 @@ export default function HomeScreen({ navigation }) {
         <Text style={styles.textBig}>{stringAssets.quiz}</Text>
       </View>
       <View style={styles.bottomContainer}>
-        <MyButton
+        <DefaultButton
           label={stringAssets.homeLetsGo}
-          onPressFunction={() => {
-            navigation.navigate("UserInputScreen");
-          }}
+          onPressFunction={onLetsGoButtonPressed}
         />
       </View>
     </View>

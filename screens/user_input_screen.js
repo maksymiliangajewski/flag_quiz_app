@@ -3,12 +3,12 @@ import { StyleSheet, Text, View, Image, Alert } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scrollview";
 import imageAssets from "../assets/images/imageAssets";
-import MyButton from "../components/my_button";
 import Input from "../components/input";
 import { MyContext } from "../store/context";
 import colorAssets from "../assets/colorAssets";
 import stringAssets from "../assets/stringAssets";
 import fontAssets from "../assets/fonts/fontAssets";
+import DefaultButton from "../components/default_button";
 
 export default function UserInputScreen() {
   const myCtx = useContext(MyContext);
@@ -87,7 +87,7 @@ export default function UserInputScreen() {
           </View>
         </View>
         <View style={styles.bottomContainer}>
-          <MyButton
+          <DefaultButton
             label={stringAssets.next}
             onPressFunction={() => {
               if (!validateFields()) {

@@ -1,9 +1,9 @@
 import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
-import MyStack from "./navigation/navigation";
 import MyContextProvider from "./store/context";
 import { useFonts } from "expo-font";
 import LoadingOverlay from "./components/loading_overlay";
+import MainAppStack from "./navigation/navigation";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -16,7 +16,7 @@ export default function App() {
   return (
     <MyContextProvider>
       <NavigationContainer>
-        <MyStack />
+        <MainAppStack />
       </NavigationContainer>
     </MyContextProvider>
   );

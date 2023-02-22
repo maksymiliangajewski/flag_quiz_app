@@ -8,7 +8,7 @@ import StartQuizScreen from "../screens/start_quiz_screen";
 
 const Stack = createNativeStackNavigator();
 
-function MyStack() {
+function MainAppStack() {
   return (
     <Stack.Navigator
       initialRouteName="Home"
@@ -23,4 +23,4 @@ function MyStack() {
   );
 }
 
-export default MyStack;
+export default MainAppStack;

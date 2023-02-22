@@ -2,7 +2,7 @@ import { TouchableOpacity, View, Text, StyleSheet } from "react-native";
 import colorAssets from "../assets/colorAssets";
 import fontAssets from "../assets/fonts/fontAssets";
 
-export default function MyButton({ label, onPressFunction }) {
+export default function DefaultButton({ label, onPressFunction }) {
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={onPressFunction} style={styles.button}>

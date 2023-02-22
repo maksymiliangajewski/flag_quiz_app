@@ -3,18 +3,20 @@ import { useContext, useEffect, useState } from "react";
 import { MyContext } from "../store/context";
 import { prepareCountries } from "../controllers/countries_controller";
 import imageAssets from "../assets/images/imageAssets";
-import MyButton from "../components/my_button";
 import LoadingOverlay from "../components/loading_overlay";
 import colorAssets from "../assets/colorAssets";
 import stringAssets from "../assets/stringAssets";
 import fontAssets from "../assets/fonts/fontAssets";
 import { StackActions } from "@react-navigation/native";
+import DefaultButton from "../components/default_button";
 
 export default function StartQuizScreen({ navigation }) {
   const myCtx = useContext(MyContext);
   const userName = myCtx.userName;
   const roundsNumber = myCtx.roundsNumber;
   const [isLoading, setIsLoading] = useState(true);
+  const onStartQuizPressed = () =>
+    navigation.dispatch(StackActions.replace("QuizScreen"));
 
   useEffect(() => {
     async function getCountries() {
@@ -48,11 +50,9 @@ export default function StartQuizScreen({ navigation }) {
         </Text>
       </View>
       <View style={styles.bottomContainer}>
-        <MyButton
+        <DefaultButton
           label={stringAssets.startQuiz}
-          onPressFunction={() => {
-            navigation.dispatch(StackActions.replace("QuizScreen"));
-          }}
+          onPressFunction={onStartQuizPressed}
         />
       </View>
     </View>

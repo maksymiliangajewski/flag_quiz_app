@@ -1,9 +1,9 @@
 import { StyleSheet, Text, View } from "react-native";
 import ResultList from "../components/result_list";
-import MyButton from "../components/my_button";
 import colorAssets from "../assets/colorAssets";
 import stringAssets from "../assets/stringAssets";
 import fontAssets from "../assets/fonts/fontAssets";
+import DefaultButton from "../components/default_button";
 
 export default function ResultScreen({ route, navigation }) {
   const { quizAnswers } = route.params;
@@ -11,6 +11,8 @@ export default function ResultScreen({ route, navigation }) {
     if (element.answerCorrect) return true;
     return false;
   }).length;
+  const onHomeButtonPressed = () => navigation.navigate("HomeScreen");
+
   return (
     <View style={styles.parent}>
       <View style={styles.topContainer}>
@@ -30,11 +32,9 @@ export default function ResultScreen({ route, navigation }) {
         <ResultList results={quizAnswers}></ResultList>
       </View>
       <View style={styles.bottomContainer}>
-        <MyButton
+        <DefaultButton
           label={stringAssets.home}
-          onPressFunction={() => {
-            navigation.navigate("HomeScreen");
-          }}
+          onPressFunction={onHomeButtonPressed}
         />
       </View>
     </View>

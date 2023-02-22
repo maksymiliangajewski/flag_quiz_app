@@ -3,10 +3,17 @@ import colorAssets from "../assets/colorAssets";
 import fontAssets from "../assets/fonts/fontAssets";
 import imageAssets from "../assets/images/imageAssets";
 import stringAssets from "../assets/stringAssets";
-import MyButton from "./my_button";
 import { StackActions } from "@react-navigation/native";
+import DefaultButton from "./default_button";
 
 export default function EndOfQuizComponent({ navigation, quizAnswers }) {
+  const onSeeResultButtonPressed = () =>
+    navigation.dispatch(
+      StackActions.replace("ResultScreen", {
+        quizAnswers: quizAnswers,
+      })
+    );
+
   return (
     <View style={styles.background}>
       <View style={styles.topContainer}>
@@ -17,15 +24,9 @@ export default function EndOfQuizComponent({ navigation, quizAnswers }) {
         <Text style={styles.textSmall}>{stringAssets.endOfQuizText}</Text>
       </View>
       <View style={styles.bottomContainer}>
-        <MyButton
+        <DefaultButton
           label={stringAssets.seeResult}
-          onPressFunction={() => {
-            navigation.dispatch(
-              StackActions.replace("ResultScreen", {
-                quizAnswers: quizAnswers,
-              })
-            );
-          }}
+          onPressFunction={onSeeResultButtonPressed}
         />
       </View>
     </View>
