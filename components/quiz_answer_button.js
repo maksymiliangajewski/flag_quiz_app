@@ -9,7 +9,7 @@ export default function QuizAnswerButton({
 }) {
   return (
     <TouchableOpacity
-      onPress={() => onPressFunction()}
+      onPress={onPressFunction}
       style={[styles.answerButton, { backgroundColor: backgroundColor }]}
     >
       <Ionicons style={styles.answerButtonIcon} name={iconLabel} size={70} />
